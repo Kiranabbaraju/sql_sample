@@ -41,6 +41,8 @@ Group by department_name
 Having COUNT(employee_name) > 5;
 /* similar to calculating total employees count in each department instead here the condition to 
 calculate was if employees are > 5. Having is used here because it is a aggreagate function
-as WHERE cannot be used with aggregate functions. here having if calculating the employees are >5 or not.
+as WHERE cannot be used with aggregate functions. here having COUNT(employee_name) is calculating
+the employees are >5 or not hence making sure the output contains departments which have more than 5 emp
+
 
 
