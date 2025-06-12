@@ -75,6 +75,44 @@ on which index will be built.
 Drop index idx_employees_last_name;
 /* drop index index_name is the syntax used */
 
+48)
+SELECT
+    employee_name,
+    department,
+    salary,
+    Row_number() OVER (partition by department order by salary desc) as salary_row
+from employees;
+/*
+Here we are selecting columns emp_name, dept_name, salary as we need these to assgin row number based
+on slary of each departments. 
+Then we are applying Row_number function to assign the number to each row.
+over here defines how row_numbers are assigned.
+Then it is taking different depts and ordering the salaries by high to low and we are giving alias
+to this whole logic as salary_row.
+This all data is being retreived from employees table.
+*/
+
+49)
+select employee_name ,salary,department_name,
+RANK() OVER(partition by department_name Order by salary desc) as top_earners
+from employees;
+/*
+We selected emp_name, salary, dept_name columns as we want to know top3 earners per department.
+rank() function assigns the rank to each row,over defines how ranking is applied,
+partition by dept and ordering it the salary from high to low and we are assigning an alias as top_earners.
+This is being retrieved from table employees. */
+
+50)
+select emp_name, department_name, salary,
+DENSE_RANK() OVER (partition by department_name order by salary desc) as emp_rank 
+from employees;
+/* Here we selecting columns based on same salary employees as they can be across all depts we need to 
+take dept information as well. 
+Then we are using Dense_rank() function calculates rank of each row. over clause defines how ranking
+is applied. Partition by column_name groups rows and ranking is started there and it is odered by
+high to low. This assigned alias as emp_rank and this all data is retrieved from employees data
+*/
+
 16)
 select
     job_id,
