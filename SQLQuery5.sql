@@ -65,6 +65,28 @@ from employees;
 /* Here as we know select is extracting what data we want i.e hire_date and Month(hire_date)
 is asking it to return the month in hiring date of employee, Again using alias for it as hire_month
 this is the table it uses to get the information */
+
+31)
+Select round(salary,2) AS round_salary
+from employees;
+/* Here round() function rounds a number to a specified number of decimal places.
+syntax is round(number, decimal). in this particular query we are calling salary which has numberic values
+and restricting it to 2 decimal places and assigning an alias as round_salary. And this data is
+retrrieved from employees table
+*/
+
+32)
+Select MAX(salary) - MIN(salary) as salary_difference
+from employees;
+
+/*  calculating the difference between maximum values in a column and minimum values in a column.
+syntax is somithing like this
+Select MAX(column_name) AS max_value from tablename;
+select MIN(column_name) AS min_value from tablename;
+So after applying arithmetic operation we are assigning an alias to the value and the data is returned
+from employees table.
+*/
+
 35)
 select salary
 from employees
